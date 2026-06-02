@@ -1,5 +1,6 @@
 package com.example.almacenamiento
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,5 +25,11 @@ class MainActivity : AppCompatActivity() {
         val path: String = filesDir.absolutePath
 
         binding.tvwRuta.text
-    }
+
+        val filename = "datos_usuario.txt"
+        val fileContents = "Puntaje: 1500\nNivel: 5"
+        openFileOutput(filename,
+            Context.MODE_PRIVATE).use { output ->
+            output.write(fileContents.toByteArray())
+        }}
 }
